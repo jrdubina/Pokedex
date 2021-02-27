@@ -1,0 +1,29 @@
+parser: babel-eslint
+extends: 
+  - prettier
+  - prettier/react
+plugins:
+  - react
+  - react/hooks
+rules:
+  react-hooks/rules-of-hooks: error
+  react-hooks/exhaustive-deps: warn
+  react/jsx-no-useless-fragment: warn
+overrides:
+  - files:
+    - '**/*.test.js'
+    - '**/*.test.jsx'
+  env:
+    jest: true
+  extends:
+    - 'plugin:jest/recommended'
+    - 'plugin:jest-dom/recommended'
+    - 'plugin:testing-library/react'
+  plugins:
+    - jest
+  rules:
+    jest/no-alias-methods: off
+    jest/no-disabled-test: warn
+    jest/no-focused-test: error
+    jest/no-try-expect: warn
+    testing-library/prefer-presence-queries: error
