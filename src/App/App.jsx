@@ -1,10 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { ContextPokemon } from '../_context'
 import './_styles/App.scss';
 
 function App() {
   return (
-    <div>
-    </div>
+    <ContextPokemon>
+      <div>
+      </div>
+    </ContextPokemon>
   );
 }
 

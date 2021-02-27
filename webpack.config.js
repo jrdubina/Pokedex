@@ -3,9 +3,12 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.js',
+    entry: ['babel-polyfill', './src/index.js'],
     resolve: {
         extensions: ['.js', '.jsx', '.scss']
+    },
+    output: {
+        filename: 'bundle.js'       
     },
     module: {
         rules: [
@@ -17,7 +20,7 @@ module.exports = {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 use: ['style-loader', 'css-loader', 'sass-loader']
-            },
+            }
         ]
     },
     plugins: [new HtmlWebpackPlugin({
