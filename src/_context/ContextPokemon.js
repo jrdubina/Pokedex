@@ -3,19 +3,20 @@ import { PokemonContext } from './Context';
 import { pokeServices } from '../_services';
 
 export const ContextPokemon = ({children}) => {
-    const [ PokemonData, setPokemonData ] = useState({});
+    const [ pokemonData, setPokemonData ] = useState({});
 
     const getPokemon = async ()=> {
       const pokemon = await pokeServices.getAll();
       setPokemonData(pokemon);
     }
   
-    useEffect(() =>{
+    useEffect(() => {
+        console.log(pokemonData)
         getPokemon();
       },[]);
 
       return(
-        <PokemonContext.Provider value={[ PokemonData, setPokemonData ]}>
+        <PokemonContext.Provider value={[ pokemonData, setPokemonData ]}>
           {children}
         </PokemonContext.Provider>
    );
